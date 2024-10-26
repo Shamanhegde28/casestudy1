@@ -1,0 +1,18 @@
+
+body, h1, h2, p {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.hero-section {
+    background-size: cover;
+    background-position: center;
+}
+
+.card {
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}

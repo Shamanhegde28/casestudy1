@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - TechFlow Consulting</title>
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+        rel="stylesheet"
+    />
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        rel="stylesheet"
+    />
+   <!-- Add this updated style section in your head -->
+<style>
+    :root {
+        --primary-color: #00ff88;
+        --secondary-color: #1a1a1a;
+        --accent-color: #333;
+        --text-light: #ffffff;
+        --text-dark: #333;
+        --gradient: linear-gradient(135deg, #00ff88, #00ccff);
+    }
+
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f8f9fa;
+        color: var(--text-dark);
+    }
+
+    /* Navbar Styles */
+    .navbar {
+        background-color: rgba(26, 26, 26, 0.95) !important;
+        backdrop-filter: blur(10px);
+    }
+
+    .navbar-brand {
+        color: var(--primary-color) !important;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    .navbar-nav .nav-link {
+        color: var(--text-light) !important;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: var(--primary-color) !important;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        background: var(--secondary-color);
+        color: var(--text-light);
+        padding: 140px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--gradient);
+        opacity: 0.1;
+    }
+
+    .hero-section h1 {
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* Service Cards */
+    .service-card {
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        overflow: hidden;
+    }
+
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 40px rgba(0, 255, 136, 0.2);
+    }
+
+    .service-card i {
+        color: var(--primary-color);
+        background: var(--secondary-color);
+        padding: 20px;
+        border-radius: 50%;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Testimonials */
+    .testimonial-item {
+        background: var(--secondary-color);
+        color: var(--text-light);
+        padding: 40px;
+        border-radius: 20px;
+        margin: 20px 0;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-item img {
+        border: 4px solid var(--primary-color);
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+
+    /* Footer */
+    .footer {
+        background: var(--secondary-color);
+        color: var(--text-light);
+        padding: 80px 0 30px;
+    }
+
+    .social-icons a {
+        color: var(--primary-color);
+        margin-right: 20px;
+        font-size: 1.8rem;
+        transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+        color: var(--text-light);
+        transform: translateY(-5px);
+    }
+
+    /* Buttons */
+    .btn-primary {
+        background: var(--gradient);
+        border: none;
+        color: var(--secondary-color);
+        font-weight: 600;
+        padding: 12px 30px;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 255, 136, 0.3);
+    }
+
+    /* Custom Carousel Controls */
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 50px;
+        height: 50px;
+        background: var(--primary-color);
+        border-radius: 50%;
+        opacity: 0.9;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .carousel-control-prev {
+        left: -25px;
+    }
+
+    .carousel-control-next {
+        right: -25px;
+    }
+
+    /* Newsletter Input */
+    .input-group .form-control {
+        border-radius: 30px 0 0 30px;
+        padding: 12px 20px;
+    }
+
+    .input-group .btn {
+        border-radius: 0 30px 30px 0;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .service-card, .testimonial-item {
+        animation: fadeIn 0.6s ease-out forwards;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .hero-section {
+            padding: 100px 0;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            display: none;
+        }
+    }
+</style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">TechFlow</a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Portfolio </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="display-4 fw-bold">About Us</h1>
+            <p class="lead">
+                Learn about our journey, our team, and our mission to transform
+                businesses through technology.
+            </p>
+        </div>
+    </header>
+
+    <!-- Values Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card values-card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title mb-4">Our Mission</h3>
+                            <p class="card-text">
+                                To empower businesses with innovative technological solutions
+                                that drive growth, efficiency, and digital transformation. We
+                                strive to be the catalyst that helps organizations achieve
+                                their full potential in the digital age.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card values-card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title mb-4">Our Vision</h3>
+                            <p class="card-text">
+                                To be the leading technology consulting firm known for
+                                delivering exceptional value, fostering innovation, and
+                                building lasting partnerships with our clients as we help
+                                shape the future of digital business.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Meet Our Team</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="team-member text-center">
+                        <img src="img4.jpeg" alt="CEO" class="mb-3" />
+                        <h4>Pradyuman</h4>
+                        <p class="text-muted">CEO & Founder</p>
+                        <p class="px-4">
+                            With over 15 years of experience in technology consulting, Pradyuman
+                            leads our strategic vision.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-member text-center">
+                        <img src="img5.jpeg" alt="CTO"  height="200" class="mb-3" />
+                        <h4>Salunkhe</h4>
+                        <p class="text-muted">Chief Technology Officer</p>
+                        <p class="px-4">
+                            Salunkhe brings expertise in cloud architecture and digital
+                            transformation.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-member text-center">
+                        <img src="img6.jpeg" alt="COO" class="mb-3" />
+                        <h4>Purvi</h4>
+                        <p class="text-muted">Chief Operations Officer</p>
+                        <p class="px-4">
+                            Purvi ensures smooth delivery of our services and client
+                            satisfaction.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4>2018</h4>
+                        <p>
+                            TechFlow Consulting was founded with a mission to help
+                            businesses embrace digital transformation.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4>2019</h4>
+                        <p>
+                            Expanded our services to include cloud solutions and
+                            cybersecurity consulting.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4>2020</h4>
+                        <p>
+                            Launched our innovative remote work solutions during the global
+                            pandemic.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4>2021</h4>
+                        <p>
+                            Achieved ISO 27001 certification and expanded our team to 50+
+                            consultants.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4>2022</h4>
+                        <p>
+                            Opened new offices in Asia and Europe to serve our global
+                            clients.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4>2023</h4>
+                        <p>Launched our AI and Machine Learning consulting practice.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4>2024</h4>
+                        <p>Expanding our domain to GenAI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4">
+                    <h4>TechFlow</h4>
+                    <p>
+                        Transforming businesses through innovative technical solutions.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/feed/" class="text-white me-3"
+                            ><i class="fab fa-linkedin"></i
+                        ></a>
+                        <a href="https://www.x.com" class="text-white me-3"
+                            ><i class="fab fa-twitter"></i
+                        ></a>
+                        <a href="https://www.facebook.com" class="text-white"
+                            ><i class="fab fa-facebook"></i
+                        ></a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="home.html" class="text-white text-decoration-none">Home</a>
+                        </li>
+                        <li>
+                            <a href="services.html" class="text-white text-decoration-none">Services</a>
+                        </li>
+                        <li>
+                            <a href="portfolio.html" class="text-white text-decoration-none"
+                                >Portfolio</a
+                            >
+                        </li>
+                        <li>
+                            <a href="contact.html" class="text-white text-decoration-none">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+            <hr class="my-4" />
+            <div class="text-center">
+                <p class="mb-0">
+                    &copy; 2024 TechFlow Consulting. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
